@@ -1,6 +1,6 @@
 'use strict';
 
-let Users = require('../models/').users;
+//let Photos = require('../models/').photos;
 
 module.exports = {
 	list: list,
@@ -10,11 +10,12 @@ module.exports = {
 	delete: del
 }
 
-function filterByPermission(array){
+/*function filterByPermission(array){
 	return processData;
-}
+}*/
+
 function list(req,res){
-	Users
+	Photos
 		.find({} , '-__v'
 		.then((data)=>res.json(data))
 }

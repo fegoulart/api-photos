@@ -12,14 +12,14 @@ router.use(bodyParser.json());
 router.use(multer.array));
 
 router
-	.route('/users')
+	.route('/photos')
 	.get(controllers.users.list)
 	.post(controllers.users.create)
 
-router
+/*router
 	.route('users:id')
 	.get(controllers.users.get)
 	.put(controllers.users.update)
 	.delete(controllers.users.delete)
-
+*/
 module.exports=router;
