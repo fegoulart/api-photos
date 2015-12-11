@@ -7,7 +7,11 @@ let routers = require('./routers/');
 
 let config = require('./config.js');
 
-app.use('/api', routers.api);
+//app.use('/auth', routers.auth);
+
+app.use(express.static('public'));
+
+app.use('/api', routers.api);//middleware para mandar para routers.api tudo que comecar com /api
 
 let mongoose = require('mongoose'); 
 
@@ -16,8 +20,8 @@ let urlDb=`mongodb://${config.db.host}/${config.db.name}`;
 mongoose.connect(urlDb);
 
 mongoose.connection.once('open', function() {
-	app.listen(3000m ()=>console.log('> localhost:3000'));
-}
+	app.listen(3000, ()=>console.log('> localhost:3000'));
+});
 
 mongoose.connection.on('error', function(err){
 	console.log('database connection error');

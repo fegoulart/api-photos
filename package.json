@@ -4,13 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=development nodemon app.js",
+    "test": "mocha test/e2e/*.spec.js"
   },
   "author": "Fernando Luiz Goulart <fegoulart@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
     "mongoose": "^4.3.0",
     "multer": "^1.1.0"
   },
