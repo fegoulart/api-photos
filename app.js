@@ -7,9 +7,13 @@ let routers = require('./routers/');
 
 let config = require('./config.js');
 
+
+
 //app.use('/auth', routers.auth);
 
 app.use(express.static('public'));
+
+//console.log('app.js linha 16');
 
 app.use('/api', routers.api);//middleware para mandar para routers.api tudo que comecar com /api
 

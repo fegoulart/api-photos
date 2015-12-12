@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon app.js",
-    "test": "mocha test/e2e/*.spec.js"
+    "test": "mocha test/e2e/*.spec.js",
+    "start:production": "pm2 start app.js --name 'APP'"
   },
   "author": "Fernando Luiz Goulart <fegoulart@gmail.com>",
   "license": "MIT",

@@ -1,10 +1,16 @@
 'use strict';
 
-jwt = require('jsonwebtoken');
+let AuthController = {}; //objeto AuthController
+let models = require('../models');
+let config = require('../config');
+let jwt = require('jsonwebtoken');
+let encode = require('../helpers/encode.js');
+
 //criar um model adminusers.js e outro users.js
 
 AuthController.local = function(req, res) {
-	/**
+	//documentacao 
+  /**
     * @api {POST} /auth/:authType local
     * @apiDescription Authentication user, or adminuser with local strategy
     * @apiName local
@@ -16,10 +22,14 @@ AuthController.local = function(req, res) {
     * @apiParam {String} password password to authentication
     */
   let password = encode(req.body.password);
-  let Model = models[req.params.authType+'s'];
+  //console.log(password);
+
+  //let Model = models[req.params.authType+'s'];
+  let Model = models.users;
+
 
   Model
-    .findOne({email: req.body.email, password: password, active: true})
+    .findOne({username: req.body.username, password: password, active: true})
     .then(function(user) {
       if (!user) {
         return res.status(401).json({
@@ -35,3 +45,5 @@ AuthController.local = function(req, res) {
       });
     });
 };
+
+module.exports=AuthController;

@@ -7,9 +7,7 @@ let config = {
 				port:27017,
 				name:'test_photo_application'
 			},
-			secret: {
-				'QWEasdafeqafb!!!244234sadlaz'
-			},
+			secret: 'QWEasdafeqafb!!!244234sadlaz',
 			token: {
 				expiresIn: '8h'
 			}
@@ -20,9 +18,7 @@ let config = {
 				port: 27017,
 				name: 'photo_application'
 			},
-			secret:{
-				'rtqiuqrbwiADSIUGF@#!#!13134'
-			},
+			secret:'rtqiuqrbwiADSIUGF@#!#!13134',
 			token: {
 				expiresIn: '1800000' //30 minutos 
 			}

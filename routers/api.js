@@ -1,11 +1,17 @@
 'use strict';
 
+
+//let express= require('express');
+//let app=express();
 let Router=require('express').Router;
 let router= new Router();
 let controllers = require('../controllers');
 let bodyParser = require('body-parser');
 
 let multer = require('multer')({dest:'./uploads'});
+
+let authenticate = require('../helpers/authenticate');
+
 
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
@@ -18,18 +24,26 @@ router.param('id', function(req,res,next,value){
 	//se parametro é valido next*()
 });
 
-router.param('authType', function(req,res,next,value){
+/*router.param('authType', function(req,res,next,value){
 	let values= [ 'user', 'adminuser'];
-	if values(.indexOf(value)===-1){
+	if (values.indexOf(value)===-1){
 		return res.status(404);
 	}
 	next();
 
-})
+})*/
 
 router
-	.route('/auth/:authType')
-	.post(api.auth.local);
+	//.route('/auth/:authType')
+	.route('/auth')
+	//.post(api.auth.local);
+	.post(controllers.auth.local)
+
+
+//console.log('linha 43 api.js');
+router.use(authenticate);
+//console.log('linha 45 api.js');
+
 
 router 
 	.route('/categories/:id')
